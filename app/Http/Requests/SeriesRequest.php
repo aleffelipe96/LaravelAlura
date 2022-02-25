@@ -24,7 +24,9 @@ class SeriesRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|min:2'
+            'nome' => 'required|min:2',
+            'qtd_temporadas' => 'required',
+            'qtd_episodios' => 'required'
         ];
     }
 
@@ -36,7 +38,9 @@ class SeriesRequest extends FormRequest
     public function attributes()
     {
         return [
-            'nome' => 'nome',
+            'nome' => '[Nome]',
+            'qtd_temporadas' => '[Nº de Temporadas]',
+            'qtd_episodios' => '[Nº de Episódios]'
         ];
     }
 
