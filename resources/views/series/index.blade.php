@@ -16,13 +16,19 @@
     <ul class="list-group">
         @foreach ($series as $serie)
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{ $serie->nome }}
-                <form action="series/{{ $serie->id }}" method="post">
-                    @csrf
-                    <button class="btn btn-danger">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </form>
+                {{ $serie->id }} - {{ $serie->nome }}
+
+                <span class="d-flex">
+                    <a href="series/{{ $serie->id }}/temporadas" class="btn btn-info mr-1">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </a>
+                    <form action="series/{{ $serie->id }}" method="post">
+                        @csrf
+                        <button class="btn btn-danger">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </form>
+                </span>
             </li>
         @endforeach
     </ul>
