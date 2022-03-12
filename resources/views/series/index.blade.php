@@ -5,11 +5,7 @@
 @section('titulo-cabecalho', 'Séries')
 
 @section('conteudo')
-    @if (!empty($mensagem))
-        <div class="alert alert-success" role="alert">
-            {{ $mensagem }}
-        </div>
-    @endif
+    @include('mensagem', ['mensagem' => $mensagem])
 
     <a href="{{ route('series.criar') }}" class="btn btn-primary mb-2">Adicionar</a>
 

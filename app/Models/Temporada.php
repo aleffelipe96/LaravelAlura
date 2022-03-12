@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class Temporada extends Model
 {
@@ -18,5 +19,12 @@ class Temporada extends Model
     public function episodios()
     {
         return $this->hasMany(Episodio::class);
+    }
+
+    public function episodiosAssistidos(): Collection
+    {
+        return $this->episodios->filter(function (Episodio $episodio) {
+            return $episodio->assistido;
+        });
     }
 }
