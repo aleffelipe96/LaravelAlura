@@ -17,3 +17,7 @@ Route::post('series/{id}/editaNome', 'SeriesController@editaNome');
  */
 Route::get('temporadas/{temporada}/episodios', 'EpisodiosController@index');
 Route::post('temporadas/{temporada}/episodios/assistir', 'EpisodiosController@assistir');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
