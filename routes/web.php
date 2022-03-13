@@ -3,6 +3,15 @@
 use Illuminate\Support\Facades\Route;
 
 /**
+ * Auth Routes
+ */
+Route::get('home', 'HomeController@index')->name('home');
+Route::get('entrar', 'EntrarController@index');
+Route::post('entrar', 'EntrarController@entrar');
+Route::get('registrar', 'RegistroController@create');
+Route::post('registrar', 'RegistroController@store');
+
+/**
  * Series Routes
  */
 Route::get('series', 'SeriesController@index')->name('series.index');
@@ -17,7 +26,3 @@ Route::post('series/{id}/editaNome', 'SeriesController@editaNome');
  */
 Route::get('temporadas/{temporada}/episodios', 'EpisodiosController@index');
 Route::post('temporadas/{temporada}/episodios/assistir', 'EpisodiosController@assistir');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
