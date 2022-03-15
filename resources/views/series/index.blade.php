@@ -7,7 +7,9 @@
 @section('conteudo')
     @include('mensagem', ['mensagem' => $mensagem])
 
-    <a href="{{ route('series.criar') }}" class="btn btn-primary mb-2">Adicionar</a>
+    @auth
+        <a href="{{ route('series.criar') }}" class="btn btn-primary mb-2">Adicionar</a>
+    @endauth
 
     <ul class="list-group">
         @foreach ($series as $serie)
@@ -29,20 +31,22 @@
                         <i class="fa-solid fa-circle-info"></i>
                     </a>
 
-                    <button class="btn btn-secondary mr-1" onclick="toggleInput({{ $serie->id }})">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-
-                    <form
-                        action="series/{{ $serie->id }}"
-                        method="post"
-                        onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($serie->nome) }}?')"
-                    >
-                        @csrf
-                        <button class="btn btn-danger">
-                            <i class="fa-solid fa-trash-can"></i>
+                    @auth
+                        <button class="btn btn-secondary mr-1" onclick="toggleInput({{ $serie->id }})">
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </button>
-                    </form>
+
+                        <form
+                            action="series/{{ $serie->id }}"
+                            method="post"
+                            onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes($serie->nome) }}?')"
+                        >
+                            @csrf
+                            <button class="btn btn-danger">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </form>
+                    @endauth
                 </span>
             </li>
         @endforeach
