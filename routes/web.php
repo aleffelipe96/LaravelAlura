@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
  * Auth Routes
  */
 Route::get('home', 'HomeController@index')->name('home');
-Route::get('login', 'EntrarController@index');
-Route::post('login', 'EntrarController@entrar');
+Route::get('login', 'EntrarController@index')->name('login');
+Route::post('login', 'EntrarController@entrar')->name('login');
 Route::get('registrar', 'RegistroController@create');
 Route::post('registrar', 'RegistroController@store');
 
