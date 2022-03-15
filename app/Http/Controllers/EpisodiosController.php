@@ -19,7 +19,11 @@ class EpisodiosController extends Controller
 
     public function assistir(Temporada $temporada, Request $request)
     {
-        $idsEpisodiosAssistidos = array_keys($request->episodio);
+        if ($request->has('episodio')) {
+            $idsEpisodiosAssistidos = array_keys($request->episodio);
+        } else {
+            $idsEpisodiosAssistidos = [];
+        }
 
         $temporada->episodios->each(function (Episodio $episodio) use ($idsEpisodiosAssistidos) {
             $episodio->assistido = in_array($episodio->id, $idsEpisodiosAssistidos);
