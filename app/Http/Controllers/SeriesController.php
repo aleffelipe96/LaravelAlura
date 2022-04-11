@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Serie;
-use App\Http\Requests\SeriesRequest;
+use App\Events\NovaSerieEvent;
 use App\Services\SerieService;
+use App\Http\Requests\SeriesRequest;
 use Illuminate\Http\Request;
 
 class SeriesController extends Controller
@@ -30,6 +31,9 @@ class SeriesController extends Controller
             $request->qtd_temporadas,
             $request->qtd_episodios
         );
+
+        $evento = new NovaSerieEvent($request->nome, $request->qtd_temporadas, $request->qtd_episodios);
+        event($evento);
 
         $request->session()->flash('mensagem', "Série $serie->nome criada com sucesso");
 
