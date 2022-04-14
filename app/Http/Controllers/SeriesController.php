@@ -26,10 +26,17 @@ class SeriesController extends Controller
 
     public function save(SeriesRequest $request, SerieService $serieService)
     {
+        $capa = null;
+
+        if ($request->hasFile('capa')) {
+            $capa = $request->file('capa')->store('serie');
+        }
+
         $serie = $serieService->criarSerie(
             $request->nome,
             $request->qtd_temporadas,
-            $request->qtd_episodios
+            $request->qtd_episodios,
+            $capa
         );
 
         $evento = new NovaSerieEvent($request->nome, $request->qtd_temporadas, $request->qtd_episodios);

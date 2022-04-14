@@ -3,14 +3,19 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Models\{Serie, Temporada, Episodio};
 
 class SerieService
 {
-    public function criarSerie(string $nomeSerie, int $qtdTemporadas, int $qtdEpisodios): Serie
+    public function criarSerie(string $nomeSerie, int $qtdTemporadas, int $qtdEpisodios, ?string $capa): Serie
     {
         DB::beginTransaction();
-            $serie = Serie::create(['nome' => $nomeSerie]);
+            $serie = Serie::create([
+                'nome' => $nomeSerie,
+                'capa' => $capa
+            ]);
+
             $this->criarTemporada($qtdTemporadas, $qtdEpisodios, $serie);
         DB::commit();
 
@@ -42,6 +47,10 @@ class SerieService
 
             $this->removerTemporada($serie);
             $serie->delete();
+
+            if ($serie->capa) {
+                Storage::delete($serie->capa);
+            }
         });
 
         return $nomeSerie;

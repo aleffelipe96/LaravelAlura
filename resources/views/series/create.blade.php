@@ -15,11 +15,11 @@
         </div>
     @endif
 
-    <form action="" method="post">
+    <form method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <div class="col col-8">
-                <label for="nome">Nome</label>
+            <div class="col col-3">
+                <label for="nome">Nome da Série</label>
                 <input
                     type="text"
                     class="form-control"
@@ -47,6 +47,16 @@
                     name="qtd_episodios"
                     id="qtd_episodios"
                     min="1"
+                >
+            </div>
+
+            <div class="col col-5">
+                <label for="capa">Capa</label>
+                <input
+                    type="file"
+                    class="form-control"
+                    name="capa"
+                    id="capa"
                 >
             </div>
         </div>
