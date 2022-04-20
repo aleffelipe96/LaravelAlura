@@ -15,6 +15,9 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\NovaSerieEvent::class => [
             \App\Listeners\NovaSerieListener::class
         ],
+        \App\Events\ApagarSerieEvent::class => [
+            \App\Listeners\ApagarSerieListener::class
+        ]
     ];
 
     /**

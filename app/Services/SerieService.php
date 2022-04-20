@@ -2,8 +2,9 @@
 
 namespace App\Services;
 
+use App\Events\ApagarSerieEvent;
+use App\Jobs\DeletarCapaJob;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use App\Models\{Serie, Temporada, Episodio};
 
 class SerieService
@@ -43,14 +44,16 @@ class SerieService
 
         DB::transaction(function () use ($serieId, &$nomeSerie) {
             $serie = Serie::find($serieId);
+            $serieObj = (object) $serie->toArray();
             $nomeSerie = $serie->nome;
 
             $this->removerTemporada($serie);
             $serie->delete();
 
-            if ($serie->capa) {
-                Storage::delete($serie->capa);
-            }
+            // $evento = new ApagarSerieEvent($serieObj);
+            // event($evento);
+
+            DeletarCapaJob::dispatch($serieObj);
         });
 
         return $nomeSerie;
