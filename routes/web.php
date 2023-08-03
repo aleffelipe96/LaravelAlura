@@ -5,12 +5,11 @@ use Illuminate\Support\Facades\Route;
 /**
  * Root Route
  */
-Route::redirect('/', 'home');
+Route::redirect('/', 'series');
 
 /**
  * Auth Routes
  */
-Route::get('home', 'HomeController@index')->name('home');
 Route::get('entrar', 'AuthController@index')->name('login');
 Route::post('entrar', 'AuthController@entrar')->name('login');
 Route::get('registrar', 'RegistroController@create')->name('registro');
