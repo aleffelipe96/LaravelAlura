@@ -13,9 +13,18 @@ class SerieSeeder extends Seeder
     public function run()
     {
         $series = [
-            ['nome' => 'Peaky Blinders'],
-            ['nome' => 'Stranger Things'],
-            ['nome' => 'Mr Robot']
+            [
+                'nome' => 'Peaky Blinders',
+                'capa' => 'serie/Peaky_Blinders.jpg'
+            ],
+            [
+                'nome' => 'Stranger Things',
+                'capa' => 'serie/Stranger_Things.jpg'
+            ],
+            [
+                'nome' => 'Mr Robot',
+                'capa' => 'serie/Mr_Robot.jpg'
+            ]
         ];
 
         foreach ($series as $serie) {

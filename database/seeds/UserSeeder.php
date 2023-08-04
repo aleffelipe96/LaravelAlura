@@ -15,14 +15,14 @@ class UserSeeder extends Seeder
     {
         $usuarios = [
             [
-                'name' => 'Alef Silva',
-                'email' => 'alef@teste.com',
-                'password' => Hash::make('alef123')
+                'name' => 'Elon Musk',
+                'email' => 'elon@teste.com',
+                'password' => Hash::make('elon123')
             ],
             [
-                'name' => 'Felipe Santos',
-                'email' => 'felipe@teste.com',
-                'password' => Hash::make('felipe123')
+                'name' => 'Bill Gates',
+                'email' => 'bill@teste.com',
+                'password' => Hash::make('bill123')
             ]
         ];
 
