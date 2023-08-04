@@ -18,6 +18,10 @@ class TemporadaSeeder extends Seeder
                 'serie_id' => 1
             ],
             [
+                'numero_temporada' => 2,
+                'serie_id' => 1
+            ],
+            [
                 'numero_temporada' => 1,
                 'serie_id' => 2
             ],
@@ -31,10 +35,6 @@ class TemporadaSeeder extends Seeder
             ],
             [
                 'numero_temporada' => 2,
-                'serie_id' => 3
-            ],
-            [
-                'numero_temporada' => 3,
                 'serie_id' => 3
             ]
         ];
