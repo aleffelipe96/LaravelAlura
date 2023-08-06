@@ -12,9 +12,10 @@ class EpisodiosController extends Controller
     {
         $episodios = $temporada->episodios;
         $temporadaId = $temporada->id;
+        $num_temporada = $temporada->numero_temporada;
         $mensagem = $request->session()->get('mensagem');
 
-        return view('episodios.index', compact('episodios', 'temporadaId', 'mensagem'));
+        return view('episodios.index', compact('episodios', 'temporadaId', 'num_temporada', 'mensagem'));
     }
 
     public function assistir(Temporada $temporada, Request $request)

@@ -3,7 +3,7 @@
 @section('titulo-aba', 'Episódios')
 
 @section('titulo-cabecalho')
-    Episódios da temporada {{ $temporadaId }}
+    Episódios da temporada {{ $num_temporada }}
 @endsection
 
 @section('conteudo')
