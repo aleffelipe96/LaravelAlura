@@ -19,12 +19,9 @@
             <input type="password" class="form-control" name="password" id="password" required>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">
-            Entrar
-        </button>
-
-        <a href="registrar" class="btn btn-secondary mt-3">
-            Registrar-se
-        </a>
+        <div class="d-flex justify-content-center align-items-center">
+            <button type="submit" class="btn btn-primary mt-4 mr-2">Entrar</button>
+            <a href="registrar" class="btn btn-secondary mt-4">Registrar-se</a>
+        </div>
     </form>
 @endsection
