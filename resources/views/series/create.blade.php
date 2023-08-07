@@ -61,6 +61,9 @@
             </div>
         </div>
 
-        <button class="btn btn-primary mt-2">Adicionar</button>
+        <div class="d-flex justify-content-center align-items-center">
+            <a href="{{ route('series.index') }}" class="btn btn-secondary mt-4 mr-2">Voltar</a>
+            <button class="btn btn-primary mt-4">Adicionar</button>
+        </div>
     </form>
 @endsection

@@ -33,5 +33,5 @@ Route::get('series/{id}/temporadas', 'TemporadasController@index')->name('tempor
 /**
  * Episodios Routes
  */
-Route::get('temporadas/{temporada}/episodios', 'EpisodiosController@index')->name('temporadas.index');
-Route::post('temporadas/{temporada}/episodios/assistir', 'EpisodiosController@assistir')->name('temporadas.index')->middleware('autenticador');
+Route::get('temporadas/{temporada}/episodios', 'EpisodiosController@index')->name('episodios.index');
+Route::post('temporadas/{temporada}/episodios/assistir', 'EpisodiosController@assistir')->name('episodios.index')->middleware('autenticador');

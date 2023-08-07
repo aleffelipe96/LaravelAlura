@@ -22,6 +22,9 @@
             @endforeach
         </ul>
 
-        <button class="btn btn-primary mt-2 mb-5">Salvar</button>
+        <div class="d-flex justify-content-center align-items-center">
+            <a href="{{ route('temporadas.index', ['id' => $serieId]) }}" class="btn btn-secondary mt-4 mr-2">Voltar</a>
+            <button class="btn btn-primary mt-4">Salvar</button>
+        </div>
     </form>
 @endsection

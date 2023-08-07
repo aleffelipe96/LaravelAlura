@@ -15,6 +15,8 @@
         </div>
     @endif
 
+    @include('mensagem', ['mensagem' => $mensagem])
+
     <ul class="list-group">
         @foreach ($temporadas as $temporada)
             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -27,4 +29,8 @@
             </li>
         @endforeach
     </ul>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <a href="{{ route('series.index') }}" class="btn btn-secondary mt-4 mb-5">Voltar</a>
+    </div>
 @endsection
